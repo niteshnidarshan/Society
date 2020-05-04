@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Society"
+    }
+  },
+  "defaultProject": "Society",
+  "cli": {
+    "analytics": "a906a9df-75de-4fe9-a4b7-8998c97bfcf7"
+  }
 }
