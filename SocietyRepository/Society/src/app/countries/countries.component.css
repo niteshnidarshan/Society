@@ -3,8 +3,9 @@
     width: 19%;
     margin-top: 0%;
     margin-left: 0%;
-    height: 90%;
+    height: 100%;
     overflow: auto;  
+    box-shadow: 2px 1px 10px silver;
 }
 #dataSection{
     position: fixed;
@@ -14,13 +15,16 @@
     margin-right: 1%;
     height: 90%;
     overflow: auto;  
-    
 }
 .div-country-details
 {
     height: auto;
     width: 99%; 
     margin: 1%;
+}
+#div-continent-summary {
+    text-align: right;
+    color: palevioletred;
 }
 a{
     background-color: aliceblue;

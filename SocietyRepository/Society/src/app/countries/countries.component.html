@@ -37,6 +37,9 @@
 
 <div id="dataSection">
     <h1>Jay Ram G ki</h1>
+    <div id="div-continent-summary">
+      <h5>Total countries: {{continentData.length}}</h5>
+    </div>
     <div class="div-country-details" *ngFor="let continent of continentData">
       <div class="media country"> 
         <img src="{{continent.flag}}" class="align-self-center mr-3" alt="{{continent.flag}}" data-title="Country: {{continent.name}} &#013;Capital: {{continent.capital}} &#013;Currency:{{continent.currencies[0].name}}">
