@@ -1,0 +1,60 @@
+#left-sidebar-div{
+    position: fixed;
+    width: 19%;
+    margin-top: 0%;
+    margin-left: 0%;
+    height: 100%;
+    overflow: auto;  
+    box-shadow: 2px 1px 10px silver;
+}
+#dataSection{
+    position: fixed;
+    width: 79%;
+    margin-top: 0%;
+    margin-left: 20%;
+    margin-right: 1%;
+    height: 90%;
+    overflow: auto;  
+}
+.div-country-details
+{
+    height: auto;
+    width: 99%; 
+    margin: 1%;
+}
+#div-continent-summary {
+    text-align: right;
+    color: palevioletred;
+}
+a{
+    background-color: aliceblue;
+}
+.div-input{
+    background-color: aliceblue;
+}
+h6{
+    color: gray;
+}
+.info {
+    background-color: white;
+}
+img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 108px;
+}
+[data-title]:hover:after { 
+    visibility: visible; 
+} 
+  
+[data-title]:after { 
+    content: attr(data-title); 
+    background-color: skyblue;    
+    color: #ffffff; 
+    font-size: 99%; 
+    position: absolute; 
+    padding: 2px 4px 2px 4px; 
+    visibility: hidden; 
+} 
+

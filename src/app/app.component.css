@@ -1,0 +1,9 @@
+#menu {
+    width: auto;
+    margin-top: 0%;
+    box-shadow: 1px 1px 7px lightgrey;
+}
+.menu-button{
+    margin: 5px;
+    margin-top: 1%;
+}
