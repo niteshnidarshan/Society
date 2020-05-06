@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CountriesComponent } from './countries/countries.component';
 import { AboutComponent } from './about/about.component'; 
-
+import { GovIndiaCityService } from './services/apicallservices/gov-india-city.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +21,7 @@ import { AboutComponent } from './about/about.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [GovIndiaCityService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
