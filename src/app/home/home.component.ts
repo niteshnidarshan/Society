@@ -63,9 +63,6 @@ export class HomeComponent implements OnInit {
       }
       this.states = st; //collecting states
       this.districts = dist; //collection districts
-       
-      //alert(JSON.stringify(this.lookup(this.stateList,"Katihar")[1][0].date));
-      
     });
      
   }
@@ -89,20 +86,17 @@ export class HomeComponent implements OnInit {
   {
     this.cityService.getZones().subscribe(res => {
       this.districtZone = res;
-      //alert(JSON.stringify(this.districtZone.zones[0].district));
     });
 
   }
 
   getZoneDetails(district: string)
   {
-      //alert(JSON.stringify(this.districtZone.zones[0].district));
       for(let i = 0; i<this.districtZone.zones.length; i++)
       {
         if(this.districtZone.zones[i].district === district)
         {
           this.selectedDistrictZone = this.districtZone.zones[i];
-          //alert(JSON.stringify(this.selectedDistrictZone.statecode));
           this.getStateData(district, this.selectedDistrictZone.statecode, this.datepipe.transform(this.selectedDistrictZone.lastupdated,'dd-MMM-yy'));
         }
       }
@@ -117,9 +111,6 @@ export class HomeComponent implements OnInit {
 
   getStateData(district, stateCd, lastUpdateDate)
   {
-    
-    //alert(district+" | "+stateCd+" | "+lastUpdateDate);
-    alert(JSON.stringify(this.stateDataRow.states_daily[0].date));
     for(let i = 0; i<this.stateDataRow.states_daily.length; i++)
     {
       if(this.stateDataRow.states_daily[i].date === lastUpdateDate)
@@ -133,7 +124,6 @@ export class HomeComponent implements OnInit {
         //this.getStateData(district, this.selectedDistrictZone.statecode, this.datepipe.transform(this.selectedDistrictZone.lastupdated,'dd-MMM-yy'));
       }
     }
-    alert(JSON.stringify(this.stateData));
   }
 
   /***
