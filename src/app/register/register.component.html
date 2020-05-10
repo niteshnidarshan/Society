@@ -1,0 +1,31 @@
+<div style="margin-left: 30%;">
+    Enter Eno <input type="text" [(ngModel)] = "id">
+    <br>
+    Emp name <input type="text" [(ngModel)] = "ename" placeholder="Enter Name">
+    <br>
+    Salary <input type="text" [(ngModel)]= "salary" placeholder="Salary">
+    <br><br>
+    <input type="button" (click)="insertEmployee()" value = "{{register_update_btn}}"> &nbsp;
+    <input type="button" (click)="searchEmployee()" value = "Search"> &nbsp;
+    <input type="button" (click)="clearFields()" value = "Clear">
+    
+</div>
+<br>
+<br>
+<table width=40% align="center">
+    <tr>
+        <th>EmpNo</th>
+        <th>Name</th>
+        <th>Salary</th>
+        <th>Operation</th>
+    </tr>
+    <tr *ngFor="let user of emplist">
+        <td>{{user.id}}</td>
+        <td>{{user.ename}}</td>
+        <td>{{user.salary|currency:'INR'}}</td>
+        <td>
+            <input type="button" value="update" (click)="updateRow(user.id)"> &nbsp;
+            <input type="button" value="delete" (click)="deleteRow(user.id)">
+        </td>
+    </tr>
+</table>

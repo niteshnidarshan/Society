@@ -8,12 +8,19 @@ import { HomeComponent } from './home/home.component';
 import { CountriesComponent } from './countries/countries.component';
 import { AboutComponent } from './about/about.component'; 
 import { GovIndiaCityService } from './services/apicallservices/gov-india-city.service';
+import { RegisterService } from './services/employee/register.service';
+import { RegisterComponent } from './register/register.component';
+import { CovidserviceService } from './services/apicallservices/india/covidservice.service';
+import { ReversepipePipe } from './pipes/reversepipe.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CountriesComponent,
-    AboutComponent
+    AboutComponent,
+    RegisterComponent,
+    ReversepipePipe
   ],
   imports: [
     BrowserModule,
@@ -21,7 +28,7 @@ import { GovIndiaCityService } from './services/apicallservices/gov-india-city.s
     FormsModule,
     HttpClientModule
   ],
-  providers: [GovIndiaCityService],
+  providers: [GovIndiaCityService, RegisterService, CovidserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

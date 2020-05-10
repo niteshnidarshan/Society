@@ -12,4 +12,10 @@ export class GovIndiaCityService {
     //API - https://restcountries.eu/rest/v2/region/{continent_name}
     return this.httpAjaxApiCall.get("https://restcountries.eu/rest/v2/region/"+continent);
   }
+
+  getAllCountries()
+  {
+    return this.httpAjaxApiCall.get("https://restcountries.eu/rest/v2/");
+  }
+
 }

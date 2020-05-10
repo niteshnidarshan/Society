@@ -15,7 +15,7 @@
     <div class="list-group-item list-group-item-action div-input" data-title="Sarch for Country">
       <input class="form-control" name="country" list="countries" placeholder="Country">
       <datalist id = "countries">
-          <option value="India"></option>
+          <option *ngFor="let countryData of countryList" value="{{countryData.name}}"></option>
       </datalist>
     </div>
     <div class="list-group-item list-group-item-action div-input" data-title="Search for States" >
@@ -46,8 +46,8 @@
         
           <div class="media-body" style="align-self: center;">
             <div>
-                <h4 class="mt-0" data-title="Country">{{continent.name}}</h4>
-                <h6 data-title="Capital is {{continent.capital}}">[ {{continent.capital}} ]</h6>                
+                <h3 class="mt-0" data-title="Country">{{continent.name}}</h3>
+                <h4 data-title="Capital is {{continent.capital}}">[ {{continent.capital}} ]</h4>                
             </div>
         </div>
         <div class="media-body">
