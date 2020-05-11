@@ -9,7 +9,8 @@ const routes: Routes = [
   {path: "home", component: HomeComponent},
   {path: "countries", component: CountriesComponent},
   {path: "about", component: AboutComponent},
-  {path: "register", component: RegisterComponent}
+  {path: "register", component: RegisterComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full' } //To set auto route
 ];
 
 @NgModule({
