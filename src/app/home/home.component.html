@@ -1,106 +1,87 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<div id="left-sidebar-div">
-  <div>
-    <div class="list-group-item list-group-item-action div-input" data-title="Saarch for District">
-      <input class="form-control" name="district" list="districts" placeholder="Search for your district" #selectedDistrict (blur)="getDataForDistrict(selectedDistrict)">
-      <datalist id = "districts">
-          <option *ngFor="let distrcitNames of districts">{{distrcitNames}}</option>
-      </datalist>
-    </div>
-    <div class="list-group-item list-group-item-action div-input" data-title="Search for States" >
-      <input class="form-control" #stateVal name="state" list="states" placeholder="State">
-      <datalist id = "states">
-          <option value=" ">
-          </option>
-      </datalist>
-    </div>
-    <div class="list-group-item list-group-item-action div-input" data-title="Search for Districts">
-      <input class="form-control" name="district" list="districts" placeholder="District" >
-      <datalist id = "districts">
-          <option value=""></option>
-      </datalist>
-    </div>
-  </div>
-
+<div class="list-group-item list-group-item-actionx div-input" data-title="Saarch for District">
+  <input class="form-control" name="district" list="districts" placeholder="Search for your district" #selectedDistrict (blur)="getDataForDistrict(selectedDistrict)">
+  <datalist id = "districts">
+      <option *ngFor="let distrcitNames of districts">{{distrcitNames}}</option>
+  </datalist>
 </div>
 <div id = "dataSection">
-<h5>Jai Ram G ki</h5>
-  <div id="header-div">
-  <table width= 100%; border="1">
-  <tr *ngIf="districtResponse?.length" [ngStyle]="{'background-color': selectedDistrictZone.zone, 'color': 'white'}">
-    <th width="10%">
-      <h3>Date</h3>
-    </th>
-    <th width="10%">
-      <h3>Active</h3>
-    </th>
-    <th width="10%">
-      <h3>Confirmed</h3>
-    </th>
-    <th width="10%">
-      <h3>Recovered</h3>
-    </th>
-    <th width="10%">
-        <h3>Departed</h3>
-    </th>
-    <th width="10%">
-        <h3>Remarks</h3>
-    </th>
-</tr>
-</table>
+      <div id="data-div">
+        <table width= 100%; border="1" class="table table-striped table-bordered">
+          <thead>
+            <tr *ngIf="districtResponse?.length" [ngStyle]="{'background-color': selectedDistrictZone.zone, 'color': 'white'}">
+              <th width="10%">
+                <h3>Date</h3>
+              </th>
+              <th width="10%">
+                <h3>Active</h3>
+              </th>
+              <th width="10%">
+                <h3>Confirmed</h3>
+              </th>
+              <th width="10%">
+                <h3>Recovered</h3>
+              </th>
+              <th width="10%">
+                  <h3>Departed</h3>
+              </th>
+              <th width="10%">
+                  <h3>Remarks</h3>
+              </th>
+            </tr>
+          </thead>
+        <tbody>
+          <tr *ngFor="let districtData of districtResponse.slice().reverse(); let i=index;" [ngStyle]="{'background-color': i%2==0? i==0?'rgb(232, 240, 254)':'silver' : 'white'}">
+            <td width="10%">
+                <p>{{districtData.date | date:'dd-MMM-yyyy'}}</p>
+            </td>
+            <td width="10%">
+                <p>{{districtData.active}}</p>
+            </td>
+            <td width="10%">
+                <p>{{districtData.confirmed}}</p>
+            </td>
+            <td width="10%" [ngStyle]="{'color':districtData.recovered>0?'green':''}">
+                <p>{{districtData.recovered}}</p>
+            </td>
+            <td width="10%" [ngStyle]="{'color':districtData.deceased>0?'red':''}">
+                <p>{{districtData.deceased}}</p>
+            </td>
+            <td width="10%">
+                <p>{{districtData.notes}}</p>
+            </td>
+        </tr>
+        </tbody>
+        </table>
+      </div>
+      
+      <div id="zone-div">
+        <table width=100% *ngIf="selectedDistrictZone.zone?.length" class="table table-striped table-bordered">
+          <tr>
+            <td>District</td>
+            <td>{{selectedDistrictZone.district}}</td>
+          </tr>
+          <tr>
+            <td>State</td>
+            <td>{{selectedDistrictZone.state}}</td>
+          </tr>
+          <tr>
+            <td>Last Updated</td>
+            <td>{{selectedDistrictZone.lastupdated | date:'dd-MMM-yyyy'}}</td>
+          </tr>
+          <tr [ngStyle]="{'background-color':selectedDistrictZone.zone, 'color':'white', 'height':'50px'}">
+            <td>Zone ({{selectedDistrictZone.district}})</td>
+            <td>{{selectedDistrictZone.zone}}</td>
+          </tr>
+          <tr>
+            <td colspan="2"><a href="{{selectedDistrictZone.source}}" target="_blank">Source link</a></td>
+          </tr>
+        </table>
+      </div>
+      <div id="bar-chart-div">
+        <div id="chartContainer" style="width: 100%; height: 300px;"></div>
+      <div style="position: absolute; margin-top: 0%; width: 100%;">
+        <hr>
+        <span>Jai Ram G ki | Data Source : <a href="https://www.covid19india.org" target="_blank">www.covid19india.org</a></span>
+      </div>
 </div>
-  <div id="data-div">
-    <table  width= 100% border="1">
-    <tr *ngFor="let districtData of districtResponse.slice().reverse(); let i=index;" [ngStyle]="{'background-color': i%2==0? i==0?'rgb(232, 240, 254)':'silver' : 'white'}">
-        <td width="10%">
-            <p>{{districtData.date | date:'dd-MMM-yyyy'}}</p>
-        </td>
-        <td width="10%">
-            <p>{{districtData.active}}</p>
-        </td>
-        <td width="10%">
-            <p>{{districtData.confirmed}}</p>
-        </td>
-        <td width="10%" [ngStyle]="{'color':districtData.recovered>0?'green':''}">
-            <p>{{districtData.recovered}}</p>
-        </td>
-        <td width="10%" [ngStyle]="{'color':districtData.deceased>0?'red':''}">
-            <p>{{districtData.deceased}}</p>
-        </td>
-        <td width="10%">
-            <p>{{districtData.notes}}</p>
-        </td>
-    </tr>
-</table>
-  </div>
-  <div id="zone-div">
-    <table width=100% *ngIf="selectedDistrictZone.zone?.length">
-      <tr>
-        <td>District</td>
-        <td>{{selectedDistrictZone.district}}</td>
-      </tr>
-      <tr>
-        <td>State</td>
-        <td>{{selectedDistrictZone.state}}</td>
-      </tr>
-      <tr>
-        <td>Last Updated</td>
-        <td>{{selectedDistrictZone.lastupdated | date:'dd-MMM-yyyy'}}</td>
-      </tr>
-      <tr [ngStyle]="{'background-color':selectedDistrictZone.zone, 'color':'white', 'height':'50px'}">
-        <td>Zone ({{selectedDistrictZone.district}})</td>
-        <td>{{selectedDistrictZone.zone}}</td>
-      </tr>
-      <tr>
-        <td colspan="2"><a href="{{selectedDistrictZone.source}}" target="_blank">Source link</a></td>
-      </tr>
-    </table>
-  </div>
-  <div id="bar-chart-div">
-    <div id="chartContainer" style="width: 100%;"></div>
-  </div>
-</div>
-
-
-
-
+ 

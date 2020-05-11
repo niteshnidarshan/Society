@@ -214,6 +214,7 @@ export class HomeComponent implements OnInit {
 
     var chart = new CanvasJS.Chart("chartContainer", {
       animationEnabled: true,
+      exportEnabled: true,
       theme: "light2",
       title:{
         text: "COVID-19 Traffic in "+selectedCity

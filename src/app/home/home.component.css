@@ -1,40 +1,42 @@
 
   #dataSection{
     position: fixed;
-    width: 79%;
+    overflow-y: auto;
+    overflow-x: auto;
+    width: 99%;
     margin-top: 0%;
-    margin-left: 20%;
+    margin-left: 0.5%;
     margin-right: 1%;
-    height: 90%;
-    overflow: auto;  
+    height: 73%;
 }
   #data-div{
-    position: fixed;
-    width: 55%;
-    margin-top: 2%;
+    position: absolute;
+    width: 66%;
+    margin-top: 0%;
     margin-left: 0%;
-    height: 26%;
+    height: 42%;
     overflow: auto; 
   }
   #header-div{
-    position: fixed;
-    width: 55%;
+    position: absolute;
+    width: 66%;
     margin-top: 0%;
     margin-left: 0%;
+    height: 3%;
   }
   #bar-chart-div{
-    position: fixed;
-    width: 55%;
-    margin-top: 16%;
+    position: absolute;
+    width: 97%;
+    margin-top: 3%;
     margin-left: 0%;
-    height: 36%;
   }
   #zone-div{
-    position: fixed;
-    width: 24%;
-    height: 30%;
+    position: static;
+    width: 34%;
+    height: 42%;
     margin-top: 0%;
-    margin-left: 56%;
+    margin-left: 67%;
+    overflow: auto;
   }
   #left-sidebar-div{
     position: fixed;
@@ -44,4 +46,6 @@
     height: 100%;
     overflow: auto;  
     box-shadow: 2px 1px 10px silver;
-}
+    display: none;
+  }
+  
