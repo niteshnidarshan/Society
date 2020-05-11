@@ -122,7 +122,9 @@ export class HomeComponent implements OnInit {
         if(this.districtZone.zones[i].district === district)
         {
           this.selectedDistrictZone = this.districtZone.zones[i];
-          this.getStateData(district, this.selectedDistrictZone.statecode, this.datepipe.transform(this.selectedDistrictZone.lastupdated,'dd-MMM-yy'));
+          //alert(this.selectedDistrictZone.lastupdated);
+          //alert(this.datepipe.transform(this.selectedDistrictZone.lastupdated,'dd-MMM-yy'));
+          //this.getStateData(district, this.selectedDistrictZone.statecode, this.datepipe.transform(this.selectedDistrictZone.lastupdated,'dd-MMM-yy'));
         }
       }
   }
