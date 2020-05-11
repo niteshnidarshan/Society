@@ -1,12 +1,13 @@
+
 <div class="list-group-item list-group-item-actionx div-input" data-title="Saarch for District">
-  <input class="form-control" name="district" list="districts" placeholder="Search for your district" #selectedDistrict (blur)="getDataForDistrict(selectedDistrict)">
+  <input class="form-control" name="district" list="districts" placeholder="Search for your district" #selectedDistrict (blur)="getDataForDistrict(selectedDistrict)" (keyup.enter)="districtMethod(selectedDistrict)">
   <datalist id = "districts">
       <option *ngFor="let distrcitNames of districts">{{distrcitNames}}</option>
   </datalist>
 </div>
 <div id = "dataSection">
       <div id="data-div">
-        <table width= 100%; border="1" class="table table-striped table-bordered">
+        <table width= 100%; border="1" class="">
           <thead>
             <tr *ngIf="districtResponse?.length" [ngStyle]="{'background-color': selectedDistrictZone.zone, 'color': 'white'}">
               <th width="10%">
@@ -53,27 +54,16 @@
         </tbody>
         </table>
       </div>
-      
       <div id="zone-div">
-        <table width=100% *ngIf="selectedDistrictZone.zone?.length" class="table table-striped table-bordered">
+        <table width=100% *ngIf="selectedDistrictZone.zone?.length" style="background-color: rgb(232, 240, 254);">
           <tr>
-            <td>District</td>
-            <td>{{selectedDistrictZone.district}}</td>
-          </tr>
-          <tr>
-            <td>State</td>
-            <td>{{selectedDistrictZone.state}}</td>
-          </tr>
-          <tr>
-            <td>Last Updated</td>
-            <td>{{selectedDistrictZone.lastupdated | date:'dd-MMM-yyyy'}}</td>
-          </tr>
-          <tr [ngStyle]="{'background-color':selectedDistrictZone.zone, 'color':'white', 'height':'50px'}">
-            <td>Zone ({{selectedDistrictZone.district}})</td>
-            <td>{{selectedDistrictZone.zone}}</td>
-          </tr>
-          <tr>
-            <td colspan="2"><a href="{{selectedDistrictZone.source}}" target="_blank">Source link</a></td>
+            <td align="center" [ngStyle]="{'background-color':selectedDistrictZone.zone, 'color':'white', 'height':'50px'}">
+              Zone ({{selectedDistrictZone.district}}):  {{selectedDistrictZone.zone}}</td>
+            <td align="right">State: </td>
+            <td align="left">{{selectedDistrictZone.state}}</td>
+            <td align="right">Last Updated: </td>
+            <td align="left">{{selectedDistrictZone.lastupdated | date:'dd-MMM-yyyy'}}</td>
+            <td align="center"><a href="{{selectedDistrictZone.source}}" target="_blank">Source link</a></td>
           </tr>
         </table>
       </div>

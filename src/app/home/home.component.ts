@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
   stateDataRow: any;
   stateData: any[];
   datepipe: DatePipe = new DatePipe('en-US');
+  District: any;
 
   constructor(private cityService: CovidserviceService) { }
 
@@ -31,6 +32,24 @@ export class HomeComponent implements OnInit {
     this.getCityStatus();
     this.getZones();
     this.getStateDataRow();
+  }
+  districtMethod(events) {
+    //If user press enter key
+    var district = (< HTMLInputElement > events).value; 
+
+    //To capitalize first char on enter key event
+    if (!district) {
+      district = '';
+    } else {
+      district =  district.replace(/\b\w/g, first => first.toLocaleUpperCase()) 
+    } 
+
+    this.selectedDistrict = district;
+    this.getDistrictData(this.selectedDistrict);
+    //if (event.keyCode === 13) {
+      //alert('you just pressed the enter key'+events);
+      // rest of your code
+    //}
   }
 
   getCityStatus()
@@ -69,8 +88,14 @@ export class HomeComponent implements OnInit {
 
   getDataForDistrict(selectedCity: HTMLInputElement)
   {
+    // If user selects value from data list drop down
     var district = (< HTMLInputElement > selectedCity).value; 
     this.selectedDistrict = district;
+    this.getDistrictData(this.selectedDistrict);
+  }
+
+  getDistrictData(district: string)
+  {
     this.districtResponse = this.lookup(this.stateList,district)[1];
 
     this.getZoneDetails(district);

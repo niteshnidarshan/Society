@@ -10,16 +10,16 @@
     height: 73%;
 }
   #data-div{
-    position: absolute;
-    width: 66%;
+    position: static;
+    width: 100%;
     margin-top: 0%;
     margin-left: 0%;
-    height: 42%;
+    height: 32%;
     overflow: auto; 
   }
   #header-div{
     position: absolute;
-    width: 66%;
+    width: 100%;
     margin-top: 0%;
     margin-left: 0%;
     height: 3%;
@@ -27,16 +27,15 @@
   #bar-chart-div{
     position: absolute;
     width: 97%;
-    margin-top: 3%;
+    margin-top: 1%;
     margin-left: 0%;
   }
   #zone-div{
     position: static;
-    width: 34%;
-    height: 42%;
+    width: 100%;
     margin-top: 0%;
-    margin-left: 67%;
-    overflow: auto;
+    margin-left: 0%;
+    height: 50px;
   }
   #left-sidebar-div{
     position: fixed;
