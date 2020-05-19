@@ -36,7 +36,7 @@
                 <p>{{districtData.date | date:'dd-MMM-yyyy'}}</p>
             </td>
             <td width="10%">
-                <p>{{districtData.active}}</p>
+                <p>{{districtData.active}}<span *ngIf="i==0 && incremented>0" style="color: red;">&nbsp; &nbsp; &#8593; ( +{{incremented}} )</span></p>
             </td>
             <td width="10%">
                 <p>{{districtData.confirmed}}</p>

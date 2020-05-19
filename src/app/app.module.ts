@@ -12,6 +12,7 @@ import { RegisterService } from './services/employee/register.service';
 import { RegisterComponent } from './register/register.component';
 import { CovidserviceService } from './services/apicallservices/india/covidservice.service';
 import { ReversepipePipe } from './pipes/reversepipe.pipe';
+import { UserformComponent } from './userform/userform.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ReversepipePipe } from './pipes/reversepipe.pipe';
     CountriesComponent,
     AboutComponent,
     RegisterComponent,
-    ReversepipePipe
+    ReversepipePipe,
+    UserformComponent
   ],
   imports: [
     BrowserModule,
@@ -32,5 +34,5 @@ import { ReversepipePipe } from './pipes/reversepipe.pipe';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-
+  
  }

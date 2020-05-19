@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   stateData: any[];
   datepipe: DatePipe = new DatePipe('en-US');
   District: any;
-
+  incremented: number;
   constructor(private cityService: CovidserviceService) { }
 
   ngOnInit(): void {
@@ -102,8 +102,11 @@ export class HomeComponent implements OnInit {
     
     // Sending current date record only
     this.districtResponse = this.districtResponse;
+    
     //this.getChart(this.districtResponse,this.selectedDistrictZone.zone); //type: "bar"/ line/ column 
     this.getLineChart(this.districtResponse, this.selectedDistrict)
+    this.incremented = this.districtResponse[this.districtResponse.length-1].active - this.districtResponse[this.districtResponse.length-2].active;
+    
     return (this.districtResponse[0]); 
   }
 
