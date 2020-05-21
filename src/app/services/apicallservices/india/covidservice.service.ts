@@ -19,5 +19,9 @@ export class CovidserviceService {
   {
     return this.http.get("https://api.covid19india.org/states_daily.json");
   }
+  getCountries()
+  {
+    return this.http.get("https://disease.sh/v2/countries/");
+  }
 
 }
