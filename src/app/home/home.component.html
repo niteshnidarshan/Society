@@ -7,47 +7,47 @@
 </div>
 <div id = "dataSection">
       <div id="data-div">
-        <table width= 100%; border="1" class="">
-          <thead>
-            <tr *ngIf="districtResponse?.length" [ngStyle]="{'background-color': selectedDistrictZone.zone, 'color': 'white'}">
-              <th width="10%">
-                <h3>Date</h3>
+        <table class="table-fix">
+          <thead class="thead-fix">
+            <tr class="tr-fix" *ngIf="districtResponse?.length" [ngStyle]="{'background-color': selectedDistrictZone.zone, 'color': 'white'}">
+              <th class="th-fix">
+                <span>Date</span>
               </th>
-              <th width="10%">
-                <h3>Active</h3>
+              <th  class="th-fix">
+                <span>Active</span>
               </th>
-              <th width="10%">
-                <h3>Confirmed</h3>
+              <th class="th-fix">
+                <span>Confirmed</span>
               </th>
-              <th width="10%">
-                <h3>Recovered</h3>
+              <th class="th-fix">
+                <span>Recovered</span>
               </th>
-              <th width="10%">
-                  <h3>Deceased</h3>
+              <th class="th-fix">
+                  <span>Deceased</span>
               </th>
-              <th width="10%">
-                  <h3>Remarks</h3>
+              <th class="th-fix">
+                  <span>Remarks</span>
               </th>
             </tr>
           </thead>
-        <tbody>
-          <tr *ngFor="let districtData of districtResponse.slice().reverse(); let i=index;" [ngStyle]="{'background-color': i%2==0? i==0?'rgb(232, 240, 254)':'silver' : 'white'}">
-            <td width="10%">
+        <tbody class="tbody-fix">
+          <tr class="tr-fix" *ngFor="let districtData of districtResponse.slice().reverse(); let i=index;" [ngStyle]="{'background-color': i%2==0? i==0?'rgb(232, 240, 254)':'silver' : 'white'}">
+            <td class="td-fix">
                 <p>{{districtData.date | date:'dd-MMM-yyyy'}}</p>
             </td>
-            <td width="10%">
+            <td  class="td-fix">
                 <p>{{districtData.active}}<span *ngIf="i==0 && incremented>0" style="color: red;">&nbsp; &nbsp; &#8593; ( +{{incremented}} )</span></p>
             </td>
-            <td width="10%">
+            <td class="td-fix">
                 <p>{{districtData.confirmed}}</p>
             </td>
-            <td width="10%" [ngStyle]="{'color':districtData.recovered>0?'green':''}">
+            <td class="td-fix" [ngStyle]="{'color':districtData.recovered>0?'green':''}">
                 <p>{{districtData.recovered}}</p>
             </td>
-            <td width="10%" [ngStyle]="{'color':districtData.deceased>0?'red':''}">
+            <td class="td-fix" [ngStyle]="{'color':districtData.deceased>0?'red':''}">
                 <p>{{districtData.deceased}}</p>
             </td>
-            <td width="10%">
+            <td class="td-fix">
                 <p>{{districtData.notes}}</p>
             </td>
         </tr>
@@ -73,5 +73,4 @@
         <hr>
         <span>Jai Ram G ki | Data Source : <a href="https://www.covid19india.org" target="_blank">www.covid19india.org</a></span>
       </div>
-</div>
- 
+</div> 

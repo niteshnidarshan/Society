@@ -28,6 +28,7 @@ export class UserformComponent implements OnInit {
     });
   }
 
+  //JSON sorting
   fsortResults(prop, asc) {
     this.worldData.sort((a, b)=> {
         if (asc) {

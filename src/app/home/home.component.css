@@ -35,7 +35,7 @@
     width: 100%;
     margin-top: 0%;
     margin-left: 0%;
-    height: 50px;
+    height: 30px;
   }
   #left-sidebar-div{
     position: fixed;
@@ -46,5 +46,67 @@
     overflow: auto;  
     box-shadow: 2px 1px 10px silver;
     display: none;
+  }
+  html,
+  body {
+    padding: 0;
+    margin: 0;
+  }
+  
+  body {
+    font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  }
+  
+  .table-fix {
+    display: grid;
+    border-collapse: collapse;
+    min-width: 100%;
+    grid-template-columns: 
+      minmax(120px, 1fr)
+      minmax(140px, 1.67fr)
+      minmax(100px, 1.67fr)
+      minmax(100px, 1.67fr)
+      minmax(90px, 3.33fr)
+      minmax(90px, 1.67fr)
+      /*minmax(110px, 3.33fr)
+      minmax(150px, 1.67fr)*/;
+  }
+  
+  .thead-fix,
+  .tbody-fix,
+  .tr-fix {
+    display: contents;
+  }
+  
+  .th-fix,
+  .td-fix {
+    padding: 5px;
+    overflow: hidden;
+    /*text-overflow: ellipsis;*/
+    white-space: nowrap;
+  }
+  
+  .th-fix {
+    position: sticky;
+    top: 0;
+    background-color: gray;
+    text-align: left;
+    font-weight: normal;
+    font-size: 1rem;
+    color: white;
+  }
+  
+  .th-fix:last-child {
+    border: 0;
+  }
+  
+  .td-fix {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    color: #808080;
+  }
+  
+  .tr-fix:nth-child(even) td {
+    background: #f8f6ff;
   }
   

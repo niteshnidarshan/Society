@@ -1,64 +1,57 @@
-<div id = "header-div" style="visibility: hidden;">
-<table border="1" width=100%  style="border: thin;"> 
-    <tr style="border: thin;">
-        <th colspan="2" width=28%>
-            <span>Country</span>
-        </th>
-        <th width=12%>
-            <span>Active cases</span>
-        </th>
-        <th width=12%>
-            <span>Today cases</span>
-        </th>
-        <th width=12%>
-            <span>Total cases</span>
-        </th>
-        <th width=12%>
-            <span style="background-color: green; color: white;">Recovered yet</span>
-        </th>
-        <th width=12%>
-            <span>Total Deceased</span>
-        </th>
-        <th width=12%>
-            <span>Today Deceased</span>
-        </th>
-    </tr>
-</table>
-</div>
-<div id="data-div">
-<table width= 100% style="border: thin;"> 
+
+<div id=data-div>
+<table>
+    <thead>
+        <tr>
+            <th>
+                <span>Country</span>
+            </th>
+            <th>
+                <span>Active</span>
+            </th>
+            <th>
+                <span>Today case</span>
+            </th>
+            <th>
+                <span>Confirmed</span>
+            </th>
+            <th>
+                <span>Recovered</span>
+            </th>
+            <th>
+                <span>Deceased</span>
+            </th>
+            <th>
+                <span>Deceased today</span>
+            </th>
+        </tr>
+    </thead>
+    <tbody> 
     <tr *ngFor="let countries of worldData let i=index;" [ngStyle]="{'background-color': i%2==0? 'rgb(232, 240, 254)' : 'white'}" #selectedCountry (click)="getCountry(selectedCountry)">
-        <td style="padding: 15px;" width=14%>
+        <td>
             <img src="{{countries.countryInfo.flag}}" alt="{{countries.country}}">
+            {{countries.country}}
         </td>
-        <td width=14%>
-            <span>{{countries.country}}</span>
-        </td>
-        <td  width=12%>
-            <span>Active</span><br>
+        <td>
             <span style="background-color: orange; color: white;">{{countries.active}}</span>
         </td>
-        <td  width=12%>
-            <span>Today case</span><br>
+        <td>
             <span style="background-color: orange; color: white;">{{countries.todayCases}}</span>
         </td>
-        <td  width=12%>
-            <span>Confirmed</span><br>
+        <td>
             <span style="background-color: orange; color: white;">{{countries.cases}}</span>
         </td>
-        <td  width=12%>
-            <span>Recovered</span><br>
+        <td>
             <span style="background-color: green; color: white;">{{countries.recovered}}</span>
         </td>
-        <td  width=12%>
-            <span>Deceased</span><br>
+        <td>
             <span style="background-color: red; color: white;">{{countries.deaths}}</span>
         </td>
-        <td  width=12%>
-            <span>Deceased today</span><br>
+        <td>
             <span style="background-color: red; color: white;">{{countries.todayDeaths}}</span>
         </td>
     </tr>
+    </tbody>
 </table>
 </div>
 
